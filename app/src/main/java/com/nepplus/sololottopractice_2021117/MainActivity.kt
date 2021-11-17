@@ -45,9 +45,20 @@ class MainActivity : AppCompatActivity() {
             while (true) {
 
                 val randomNum = (Math.random() * 45 + 1).toInt()
-                Log.d("랜덤", randomNum.toString())
 
-                if (true){
+//                중복검사 : 당첨 숫자 목록에 내 숫자가 있는지?
+
+                val isDuplOk = !mWinLottoNumArr.contains(randomNum)
+
+
+
+
+                if (isDuplOk){
+
+
+//                    숫자를 당첨 목록에 추가.
+                    mWinLottoNumArr.add(randomNum)
+
 
                     break
                 }
@@ -57,7 +68,19 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+//        ArrayList의 sort 기능 활용
+        mWinLottoNumArr.sort()
+//        당첨 번호 6개 확인
+
+        for ( num in mWinLottoNumArr){
+            Log.d("당첨번호", num.toString())
+        }
+
+
+
     }
+
+
 
     fun setValuse() {
 
